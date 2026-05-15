@@ -1,3 +1,11 @@
 fn main() {
-    println!("Hello, world!");
+  let mut name = String::from("Boris");
+	println!("{name}");
+	name.push_str(" Pask");
+	println!("{name}");
 }
+
+
+
+
+
