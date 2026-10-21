@@ -2,25 +2,32 @@ mod inventory;
 mod orders;
 
 
-// 
+
+use orders::MANAGER;
+
+// ---------  here you relaize we can now remove products
+use inventory::{ProductCategory,Item};
+
+use inventory::{MANAGER as INVENTORY_MANAGER,FLOOR_SPACE};
+
+use crate::inventory::products::ProductCategory::Ladder;
+
 fn main() {
   println!("Our manager are {} and {} and we have {} square feet of floor space",
-  inventory::MANAGER,
-  orders::MANAGER,
+  INVENTORY_MANAGER,
+  MANAGER,
   inventory::FLOOR_SPACE 
 );
 //
 println!("############");
 inventory::talk_to_manager();
 println!("############");
-let favoruit_category = inventory::ProductCategory::Hammer;
+let favoruit_category = ProductCategory::Hammer;
 println!("{:?}",favoruit_category);
-//
-let tall_ladder = inventory::Item{
-  name : String::from(""),
-  category:inventory::ProductCategory::Ladder,
-  quantity:4,
-};
+println!("############");
 
+// --------------  look here too
+let tall_ladder = Item::new(String::from("m"), Ladder, 5);
+println!("{:?}",tall_ladder)
 
 }
