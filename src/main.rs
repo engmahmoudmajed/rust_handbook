@@ -1,33 +1,30 @@
-mod inventory;
-mod orders;
+// mod inventory;
+// mod orders;
+
+use fake::{Fake, Faker};
+use std::{fmt,io::{self,stdin,stdout}};
+
+use std::collections::*;
+// use inventory::products::{Item, ProductCategory};
+// use inventory::{FLOOR_SPACE, MANAGER as INVENTORY_MANAGER};
+// use orders::MANAGER;
+//---------------
+// here to acces to lib crate its have same name of packege 
+use rust_study::inventory::{FLOOR_SPACE, MANAGER as INVENTORY_MANAGER};
+use rust_study::{ProductCategory,Item};
+use rust_study::orders::MANAGER;
 
 
-
-use orders::MANAGER;
-
-// ---------  here you relaize we can now remove products
-use inventory::{ProductCategory,Item};
-
-use inventory::{MANAGER as INVENTORY_MANAGER,FLOOR_SPACE};
-
-use crate::inventory::products::ProductCategory::Ladder;
 
 fn main() {
-  println!("Our manager are {} and {} and we have {} square feet of floor space",
-  INVENTORY_MANAGER,
-  MANAGER,
-  inventory::FLOOR_SPACE 
-);
-//
-println!("############");
-inventory::talk_to_manager();
-println!("############");
-let favoruit_category = ProductCategory::Hammer;
-println!("{:?}",favoruit_category);
-println!("############");
+    println!(
+        "Our managers are {} and {} and we have {} square feet of floor space",
+        INVENTORY_MANAGER, MANAGER, FLOOR_SPACE
+    );
 
-// --------------  look here too
-let tall_ladder = Item::new(String::from("m"), Ladder, 5);
-println!("{:?}",tall_ladder)
+    let fake_item: Item = Faker.fake();
+    println!("{:?}", fake_item);
 
+    let random_category: ProductCategory = Faker.fake();
+    println!("{:?}", random_category);
 }
