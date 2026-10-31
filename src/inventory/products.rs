@@ -1,12 +1,15 @@
 use fake::Dummy;
 
 
+
+/// Category of Products our Buisness sell 
 #[derive(Debug,Dummy)]
 pub enum ProductCategory {
     Ladder,
     Hammer,
 }
 
+/// concrete item in the stock within our ware house 
 #[derive(Debug,Dummy)]
 pub struct Item {
     pub name: String,
@@ -15,9 +18,8 @@ pub struct Item {
 }
 
 impl Item {
-    // contructur function
+    /// create new item 
     pub fn new(name: String, category: ProductCategory, quantity: u32) -> Self {
-        //herw 
         super::talk_to_manager();
         Self {
             name,
